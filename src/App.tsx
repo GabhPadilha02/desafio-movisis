@@ -1,7 +1,16 @@
+import { Header } from "./components/Header/Index";
+import { SidebarFilters } from "./components/SidebarFilters/Index";
+
 export function App() {
 
   return (
-    <h1>Hello World</h1>
+    <>
+      <Header />
+      <div>
+        <SidebarFilters/>
+      </div>
+    </>
+    
   )
 }
 
