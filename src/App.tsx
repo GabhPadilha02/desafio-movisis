@@ -1,14 +1,19 @@
 import { Header } from "./components/Header/Index";
+import { Search } from "./components/Search/Index";
 import { SidebarFilters } from "./components/SidebarFilters/Index";
+import styles from './App.module.scss'
 
 export function App() {
 
   return (
     <>
       <Header />
-      <div>
+      <main className={styles.mainContainer}>
         <SidebarFilters/>
-      </div>
+        <div className={styles.contentContainer}>
+          <Search/>
+        </div>
+      </main>
     </>
     
   )
