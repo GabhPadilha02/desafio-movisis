@@ -5,8 +5,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 60px 0 60px;
+  padding: 0 20px 0 20px;
   a{
+    font-size: 1.2rem;
     color: var(--white);
     transition: all 0.2s;
     font-weight: bold;
