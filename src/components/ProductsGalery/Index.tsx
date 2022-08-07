@@ -12,6 +12,7 @@ export function ProductsGalery() {
         <Product/>
         <Product/>
         <Product/>
+        
       </div>
       
     </main>

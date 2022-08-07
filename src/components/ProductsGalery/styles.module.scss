@@ -1,7 +1,7 @@
 .productsGaleryContainer{
   display: flex;
   flex-direction: column;
-  margin: 40px;
+  margin: 10px 0 0 40px;
   gap: 2rem;
   h1{
     font-size: 1.5rem;
@@ -9,7 +9,7 @@
   .gridGaleryProducts{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin: 0 auto;
+    
     gap: 1.2rem;
 
    

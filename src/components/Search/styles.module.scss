@@ -10,9 +10,8 @@
     color: #D9D9D9;
     display: flex;
     align-items: center;
-    justify-content: center;
-
     input{
+      margin: 0 auto;
       width: 95%;
       height: 30px;
       border-radius: 5px;
@@ -24,7 +23,7 @@
 
     svg{
       position: relative;
-      left: 30px;
+      left: 45px;
     }
   }
   
