@@ -1,16 +1,27 @@
+import { ChangeEvent, useState } from 'react'
+import { useQueryProductsQuery } from '../../graphql/generated'
+import { Product } from '../Product/Index'
 import styles from './styles.module.scss'
 
 export function SidebarFilters() {
+  const {data} = useQueryProductsQuery()
+  const [priceFilter, setPriceFilter] = useState('')
+  function handleFilterMinPrice(event: ChangeEvent<HTMLInputElement>) {
+    event.preventDefault()
+    setPriceFilter(event.target.value)
+    console.log(priceFilter)
+  }
+
   return (
     <aside className={styles.sidebarContainer}>
       <h1>Filtrar</h1>
       <h2>Preço</h2>
-      <form action="" className={styles.priceFilterContainer}>
+      <form action=""  className={styles.priceFilterContainer} >
         <label htmlFor="">De
-          <input type="number" placeholder='R$ 0,00' name="" id="" />
+          <input type="number" placeholder='R$ 0,00' name="minPrice" id="minPrice" onChange={handleFilterMinPrice}/>
         </label>
         <label htmlFor="">Até
-          <input type="number" placeholder='R$ 0,00' name="" id="" />
+          <input type="number" placeholder='R$ 0,00' name="maxPrice" id="maxPrice" />
         </label>
       </form>
       <h2>Ordenar</h2>
@@ -28,7 +39,8 @@ export function SidebarFilters() {
           </select>
         </label>
       </form>
-
+    
+  
     </aside>
   )
 }

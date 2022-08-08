@@ -1,41 +1,42 @@
-import { MagnifyingGlass } from 'phosphor-react'
-import { FormEvent, useState } from 'react'
-import { useQueryProductsQuery } from '../../graphql/generated'
+import { Divide, MagnifyingGlass } from 'phosphor-react'
+import { ChangeEvent, FormEvent, FormEventHandler, useState } from 'react'
+import { Produto, useQueryProductsQuery } from '../../graphql/generated'
 import { Product } from '../Product/Index'
+import { ProductsGalery } from '../ProductsGalery/Index'
 import styles from './styles.module.scss'
 
 export function Search() {
-
   const {data} = useQueryProductsQuery()
   console.log(data)
-
   const [searchProduct, setSearchProduct] = useState('')
-  function handleSearchProduct(event: FormEvent) {
+  function handleSearchProduct(event: ChangeEvent<HTMLInputElement>) {
     event.preventDefault()
     setSearchProduct(event.target.value)
     console.log(searchProduct)
   }
-
   const lowerSearch = searchProduct.toLocaleLowerCase()
-
-  const filterProducts = data?.produtos.filter((product) => product.nomeDoProduto.toLowerCase().includes(lowerSearch))
-  console.log(filterProducts)  
-
+  const filterProducts = data?.produtos.filter((product) => product.nomeDoProduto.toLowerCase().includes(lowerSearch)) 
   const isSearchInputEmpty = searchProduct.length === 0
-  const isSearchInputNotEmpty = searchProduct.length > 0
-
+    
   return (
-    <>
+    <main className={styles.displayMainContainer}>
       <form action="" className={styles.searchContainer} >
         <label htmlFor="">
           <MagnifyingGlass/>
-          <input type="search" name="searchProducts" id="searchProducts" placeholder='Buscar' onChange={handleSearchProduct}/>
+          <input type="search" 
+            name="searchProducts"
+            id="searchProducts" 
+            placeholder='Buscar' 
+            onChange={handleSearchProduct}
+          />
         </label>
       </form>
-      <div className={styles.filterProduct}>
+
+      <div className={styles.galery}>
         {isSearchInputEmpty 
-          ? <div className={styles.displayNone}/>
-          : filterProducts.map(products => {
+          ? <ProductsGalery/>
+          : <div className={styles.filterProduct}>
+              {filterProducts.map(products => {
             return (
               <Product 
                 key={products.id}
@@ -43,12 +44,12 @@ export function Search() {
                 price={products.preco}
                 createdAt={new Date(products.createdAt)}
                 productImgUrl={products.imgUrl}
-                isSearchInputNotEmpty= {isSearchInputNotEmpty}
-              />
+              /> 
             )
-            })
+            })}
+            </div>
         }
-    </div>
-    </>
+      </div>
+    </main>
   )
 }

@@ -15,7 +15,6 @@ export function App() {
         <SidebarFilters/>
         <div className={styles.contentContainer}>
           <Search/>
-          <ProductsGalery/>
         </div>
       </main>
     </ApolloProvider>
