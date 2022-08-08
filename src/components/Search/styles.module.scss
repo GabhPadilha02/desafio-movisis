@@ -28,3 +28,19 @@
   }
   
 }
+
+.filterProduct{
+    margin: 20px;
+    width: 75vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+}
+
+.displayNone{
+  display: none;
+  width: 0;
+  height: 0;
+}

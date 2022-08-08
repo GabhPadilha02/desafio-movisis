@@ -1,0 +1,9 @@
+query QueryProducts {
+  produtos {
+    nomeDoProduto
+    preco
+    id
+    createdAt
+    imgUrl
+  }
+}

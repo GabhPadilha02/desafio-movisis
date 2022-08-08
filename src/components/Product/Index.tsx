@@ -1,14 +1,30 @@
 import { Plus } from "phosphor-react";
+import { useQueryProductsQuery } from "../../graphql/generated";
 import style from './styles.module.scss'
 
-export function Product() {
+interface ProductProps{
+  title: string
+  price: number
+  createdAt: Date
+  productImgUrl: string
+}
+
+export function Product(props: ProductProps) {
+
+   
+
+  const { data } = useQueryProductsQuery()
+  console.log(data)
   return (
     <div className={style.productContainer}>
-      <img src="https://media.1815.io/topgear/i/width=892&height=502/2018/08/mansory-lamborghini-aventador-s-3-scaled.jpg" alt="" />
+      <img src={props.productImgUrl} alt="" />
       <div className={style.infoProduct}>
-        <p>Produto nome</p>
+        <p>{props.title}</p>
         <div className={style.displayPrice}>
-          <span>R$119,90</span>
+          <span>{new Intl.NumberFormat("pt-br", {
+            style: "currency",
+            currency: "BRL",
+          }).format(props.price)}</span>
           <button className="backgroundPlus">
             <Plus size={24}/>
           </button>
