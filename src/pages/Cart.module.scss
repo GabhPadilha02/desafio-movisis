@@ -1,0 +1,85 @@
+.cartContainer{
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 1.5rem;
+  h1{
+    margin-top: 1rem;
+    border: 2px solid #e0e0e0;
+    padding: 0.5rem;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 2px 7px 1px rgba(209,209,209,1);
+    -moz-box-shadow: 0px 2px 7px 1px rgba(209,209,209,1); 
+    box-shadow: 0px 0px 7px 1px rgba(209,209,209,1);
+  }
+  .payInfo{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    .productInfo{
+      display: flex;
+      flex-direction: column;
+      margin-top: 1.3rem;
+      width: 80%;
+      .detailsOfProduct{
+        display: flex;
+        justify-content: end;
+        gap: 14rem;
+        span{
+          font-weight: bold;
+        }
+      }
+    }
+    .priceInfo{
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      background-color: #f6f6f6;
+      padding: 1rem;
+      border-radius: 8px;
+      gap: 2rem;
+      -webkit-box-shadow: 0px 2px 7px 1px rgba(209,209,209,1);
+      -moz-box-shadow: 0px 2px 7px 1px rgba(209,209,209,1);
+      box-shadow: 0px 2px 7px 1px rgba(209,209,209,1);
+
+      .priceDetails{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        div{
+          display: flex;
+          justify-content: space-between;
+          span{
+            font-size: 0.875rem;
+          }
+          &:last-child{
+            span, strong{
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+      .line{
+        width: 100%;
+        margin: 0 auto;
+        height: 1px;
+        background-color: rgb(196, 190, 190);
+      }
+      button{
+        border: none;
+        background-color: var(--blue-500);
+        color: white;
+        padding: 0.8rem;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: all .3s;
+        &:hover{
+          opacity: 70%;
+        }
+      }
+
+    }
+  }
+}
