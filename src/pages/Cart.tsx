@@ -16,7 +16,7 @@ export function Cart() {
               <span>Quantidade</span>
             </div>
             <div className={styles.productInCartContainer}>
-              <ProductInCart />
+              <ProductInCart/>
             </div>
           </div>
 
