@@ -1,5 +1,5 @@
-import { Header } from '../components/Header/Index'
-import { ProductInCart } from '../components/ProductInCart/Index'
+import { Header } from '../components/Header'
+import { ProductInCart } from '../components/ProductInCart'
 import styles from './Cart.module.scss'
 
 export function Cart() {
