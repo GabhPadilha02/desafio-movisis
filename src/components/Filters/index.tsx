@@ -1,9 +1,9 @@
 import { useApp } from '../../contexts/AppContext'
-import { Product } from '../Product'
 import styles from './styles.module.scss'
 
 export function Filters() {
-  const { setMinPriceFilter, setMaxPriceFilter, filteredProducts, error } = useApp()
+
+  const { setMinPriceFilter, setMaxPriceFilter, error, setPriceOption, setInclusionDateOption, inclusionDateOption, priceOption } = useApp()
 
   return (
     <main className={styles.container}>
@@ -34,37 +34,27 @@ export function Filters() {
         <form action="" className={styles.orderFilterContainer}>
           <h1>Ordenar</h1>
           <label htmlFor="price"> Preço
-            <select name="price" id="priceOption">
-              <option value="Menor preço" selected>Menor preço</option>
+            <select name="price" id="priceOption" value={priceOption} onChange={(e) => {
+              setPriceOption(e.target.value)
+              setInclusionDateOption("Nenhum")
+            }}>
+              <option value="Nenhum" selected>Nenhum</option>
+              <option value="Menor preço" >Menor preço</option>
               <option value="Maior preço">Maior preço</option>
             </select>
           </label>
           <label htmlFor="date">Data de inclusão
-            <select name="date" id="date">
-              <option value="Mais recente" selected>Mais recente</option>
+            <select name="date" id="date" value={inclusionDateOption} onChange={(e) => {
+              setInclusionDateOption(e.target.value)
+              setPriceOption("")
+            }}>
+              <option value="Nenhum" selected>Nenhum</option>
+              <option value="Mais recente">Mais recente</option>
               <option value="Menos recente">Menos recente</option>
             </select>
           </label>
         </form>
       </aside>
-      <div className={styles.searchAndGaleryContainer}>
-        {filteredProducts.length !== 0 &&
-          <div className={styles.productsFilteredByPrice}>
-            {filteredProducts?.map(product => {
-              return (
-                <Product
-                  key={product.id}
-                  title={product.nomeDoProduto}
-                  price={product.preco}
-                  createdAt={new Date(product.createdAt)}
-                  productImgUrl={product.imgUrl}
-                />
-              )
-            })}
-          </div>
-        }
-      </div>
     </main>
-
   )
 }
