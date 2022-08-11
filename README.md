@@ -16,7 +16,7 @@
 - É necessário ter o `NODE JS` para rodar o projeto, recomendo que o instale usando o `asdf`
 - Para instalar o `asdf`, utilize a documentação oficial: [Aqui](https://github.com/asdf-vm/asdf-nodejs)
 - Instale o plugin do `NODE JS`: [Aqui](https://asdf-vm.com/guide/getting-started.html#plugin-dependencies)
-- `asdf install nodejs latest` 
+- `asdf install nodejs 18.6.0` 
 - Instale o yarn, use a documentação oficial: [Aqui](https://classic.yarnpkg.com/lang/en/docs/getting-started/)
 
 ## Setup 
